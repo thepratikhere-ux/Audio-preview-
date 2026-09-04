@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Preview</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      margin:0;
+    }
+
+    .box{
+      background:white;
+      width:90%;
+      max-width:420px;
+      padding:25px;
+      border-radius:18px;
+      box-shadow:0 5px 20px rgba(0,0,0,.15);
+      text-align:center;
+    }
+
+    h1{margin-bottom:10px;}
+
+    input{
+      width:90%;
+      padding:12px;
+      margin:15px 0;
+      border:1px solid #ccc;
+      border-radius:10px;
+      font-size:16px;
+    }
+
+    button{
+      padding:12px 25px;
+      border:0;
+      border-radius:10px;
+      background:#111;
+      color:white;
+      font-size:16px;
+    }
+
+    #player{
+      display:none;
+      margin-top:20px;
+    }
+
+    audio{
+      width:100%;
+    }
+
+    .note{
+      font-size:13px;
+      color:#777;
+      margin-top:15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <h1>🎧 Audio Preview</h1>
+  <p>Password enter karke audio suniye</p>
+
+  <input type="password" id="password" placeholder="Enter Password">
+
+  <br>
+
+  <button onclick="checkPassword()">Listen Audio</button>
+
+  <div id="player">
+    <h3>Your Advertisement Audio</h3>
+
+    <audio controls controlsList="nodownload">
+      <source src="audio.mp3" type="audio/mpeg">
+      Your browser does not support audio.
+    </audio>
+
+    <p class="note">
+      This is a preview. Final audio will be provided after payment.
+    </p>
+  </div>
+
+</div>
+
+<script>
+function checkPassword(){
+
+  const password = document.getElementById("password").value;
+
+  if(password === "1234"){
+    document.getElementById("player").style.display = "block";
+  }else{
+    alert("Wrong password!");
+  }
+
+}
+</script>
+
+</body>
+</html>
